@@ -44,10 +44,10 @@ FE/     --> Angular frontend app
 1. **Create API Project**
 
    ```bash
-   mkdir LibraryManagementApi
-   cd LibraryManagementApi
-   dotnet new webapi -n LibraryManagementApi
-   cd LibraryManagementApi
+   mkdir API
+   cd API
+   dotnet new webapi -n API
+   cd API
    ```
 
 2. **Install Required Packages**
