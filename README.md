@@ -16,8 +16,8 @@ This README is beginner-friendly and explains how to set up everything **step-by
 ## 📁 Project Structure
 
 ```
-LibraryManagementApi/         --> ASP.NET Core Web API backend
-LibraryManagementAngular/     --> Angular frontend app
+API/         --> ASP.NET Core Web API backend
+FE/     --> Angular frontend app
 ```
 
 ---
