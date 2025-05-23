@@ -1,20 +1,68 @@
-  <!-- login-user.component.html -->
-<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <h2>Login</h2>
-  <div>
-    <label>Email:</label>
-    <input formControlName="email" type="email" />
-    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-      Valid email is required.
+<!-- login-user.component.html -->
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img 
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" 
+          class="img-fluid" 
+          alt="Login illustration" 
+        />
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+          <div class="input-group mb-4">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              placeholder="Enter a valid email address"
+              formControlName="email"
+              required
+            />
+          </div>
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger mb-2">
+            Valid email is required.
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              placeholder="Enter password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger mb-2">
+            Password is required.
+          </div>
+
+          <div *ngIf="message" class="alert" [ngClass]="{'alert-success': message.includes('successful'), 'alert-danger': !message.includes('successful')}" role="alert">
+            {{ message }}
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;"
+              [disabled]="loginForm.invalid"
+            >
+              Login
+            </button>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-4">
+            <p class="small mb-0">
+              Don't have an account? 
+              <a href="user" class="link-primary">
+                Register here
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  <div>
-    <label>Password:</label>
-    <input formControlName="password" type="password" />
-    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-      Password is required.
-    </div>
-  </div>
-  <button type="submit" [disabled]="loginForm.invalid">Login</button>
-  <div *ngIf="message" style="margin-top:10px;">{{ message }}</div>
-</form>
+</section>

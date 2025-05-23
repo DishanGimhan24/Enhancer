@@ -1,27 +1,90 @@
-
 <!-- add-user.component.html -->
-<form [formGroup]="userForm" (ngSubmit)="addUser()">
-  <h2>Add User</h2>
-  <div>
-    <label>Name:</label>
-    <input formControlName="name" type="text" />
-    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
-      Name is required.
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid"
+          alt="Registration illustration"
+        />
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="userForm" (ngSubmit)="addUser()">
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Register</p>
+          </div>
+
+          <div *ngIf="message" class="alert alert-danger mb-3" role="alert">
+            {{ message }}
+          </div>
+
+          <div class="mb-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your name"
+                formControlName="name"
+                required
+                [ngClass]="{'is-invalid': userForm.get('name')?.invalid && userForm.get('name')?.touched, 'is-valid': userForm.get('name')?.valid && userForm.get('name')?.touched}"
+              />
+              <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="invalid-feedback d-block">
+                Name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter a valid email address"
+                formControlName="email"
+                required
+                [ngClass]="{'is-invalid': userForm.get('email')?.invalid && userForm.get('email')?.touched, 'is-valid': userForm.get('email')?.valid && userForm.get('email')?.touched}"
+              />
+              <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="invalid-feedback d-block">
+                Valid email is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock"></i></span>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Create a password"
+                formControlName="password"
+                required
+                [ngClass]="{'is-invalid': userForm.get('password')?.invalid && userForm.get('password')?.touched, 'is-valid': userForm.get('password')?.valid && userForm.get('password')?.touched}"
+              />
+              <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="invalid-feedback d-block">
+                Password is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;"
+              [disabled]="userForm.invalid"
+            >
+              Register
+            </button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">
+              Already have an account? <a href="login" class="link-primary">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  <div>
-    <label>Email:</label>
-    <input formControlName="email" type="email" />
-    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
-      Valid email is required.
-    </div>
-  </div>
-  <div>
-    <label>Password:</label>
-    <input formControlName="password" type="password" />
-    <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
-      Password is required.
-    </div>
-  </div>
-  <button type="submit" [disabled]="userForm.invalid">Add User</button>
-</form>
+</section>
