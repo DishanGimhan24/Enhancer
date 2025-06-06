@@ -37,6 +37,10 @@ export class BookComponent implements OnInit {
     this.fetchBooks();
   }
 
+/**ngOnInit() is called when the component is first loaded.
+
+It triggers fetchBooks(), which gets data from the backend. */
+
   fetchBooks() {
     this.bookService.getBooks().subscribe(
       (books: Book[]) => {
