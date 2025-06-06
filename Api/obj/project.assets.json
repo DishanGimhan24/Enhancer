@@ -6266,11 +6266,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Enhancer\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\Dishan PC\\Documents\\GitHub\\Enhancer\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "E:\\Enhancer\\Api\\Api.csproj",
+      "projectPath": "C:\\Users\\Dishan PC\\Documents\\GitHub\\Enhancer\\Api\\Api.csproj",
       "packagesPath": "C:\\Users\\Dishan PC\\.nuget\\packages\\",
-      "outputPath": "E:\\Enhancer\\Api\\obj\\",
+      "outputPath": "C:\\Users\\Dishan PC\\Documents\\GitHub\\Enhancer\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dishan PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
